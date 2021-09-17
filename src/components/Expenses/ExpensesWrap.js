@@ -1,8 +1,9 @@
 import React from 'react';
 import ExpenseItem from './ExpenseItem';
-import Card from './Card';
+import Card from '../UI/Card';
 import './ExpensesWrap.css';
-function ExpensesWrap(props) {
+
+const ExpensesWrap = props => {
   return (
     <Card className="expenses">
       {props.expenses.map(item => {
@@ -16,5 +17,5 @@ function ExpensesWrap(props) {
       })}
     </Card>
   );
-}
+};
 export default ExpensesWrap;
