@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import NewExpense from './components/NewExpense/NewExpense';
 import ExpensesWrap from './components/Expenses/ExpensesWrap';
-
 const App = () => {
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: 'e1',
       title: `Ann's birthday party`,
@@ -27,10 +27,16 @@ const App = () => {
       amount: '12',
       date: new Date(2021, 0, 15),
     },
-  ];
+  ]);
+  const addExpenseHandler = expense => {
+    // console.log(expense);
+    setExpenses(expenses => {
+      return [...expenses, expense];
+    });
+  };
   return (
     <div>
-      <h2>Lets get started</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <ExpensesWrap expenses={expenses} />
     </div>
   );
